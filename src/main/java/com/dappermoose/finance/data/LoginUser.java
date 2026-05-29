@@ -1,8 +1,9 @@
 package com.dappermoose.finance.data;
 
-import jakarta.persistence.CheckConstraint;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -73,8 +74,8 @@ public class LoginUser extends AbstractBaseModifiableEntity
      * @param enabled the new YesNo value for enabled.
      * @return the YesNo value for enabled.
      */
-    @Column (name = "ENABLED", nullable = false, length = 1,
-            check = @CheckConstraint (name = "CHECK_ENABLED", constraint = "ENABLED in ('Y', 'N')"))
+    @Column (name = "ENABLED", nullable = false, length = 3)
+    @Enumerated (EnumType.STRING)
     private YesNoEnum enabled;
 
     /**

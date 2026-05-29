@@ -19,13 +19,14 @@
         <license/>
     </licenses>
     <developers>
-        <developer/>
+        <developer>
+            <name>Matt Heitker</name>
+            <email>heitkergm@acm.org</email>
+        </developer>
+
     </developers>
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url></url>
+        <url>https://github.com/heitkergm/finance</url>
     </scm>
     <properties>
         <java.version>25</java.version>

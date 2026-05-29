@@ -2,8 +2,7 @@ package com.dappermoose.finance.dao;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.history.RevisionRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dappermoose.finance.data.LoginUser;
 
@@ -13,8 +12,7 @@ import com.dappermoose.finance.data.LoginUser;
  *
  * @author Matt Heitker
  */
-public interface LoginUserRepository extends CrudRepository<LoginUser, Long>,
-                                     RevisionRepository<LoginUser, Long, Long>
+public interface LoginUserRepository extends JpaRepository<LoginUser, Long>
 {
 
     /**
