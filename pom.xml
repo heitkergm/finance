@@ -43,7 +43,7 @@
         <jakarta-inject.version>2.0.1.MR</jakarta-inject.version>
         <jakarta-xml-bind.version>4.0.5</jakarta-xml-bind.version>
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
-        <lettuce.version>7.5.1.RELEASE</lettuce.version>
+        <lettuce.version>7.6.0.RELEASE</lettuce.version>
         <log4j2.version>2.26.0</log4j2.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>

@@ -1,12 +1,14 @@
 package com.dappermoose.finance.init;
 
+import java.util.Locale;
+import java.util.TimeZone;
+
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -84,15 +86,32 @@ public class SpringWebConfig implements WebMvcConfigurer
         return resolver;
     }
 
-    // beans for tx/database
     /**
-     * Persistence post processor.
+     * bean to hold all the time zones names.
      *
-     * @return the persistence exception translation post processor
+     * @return the array of time zones names
      */
-    @Bean
-    public static PersistenceExceptionTranslationPostProcessor persistencePostProcessor ()
+    @Bean (name = "timeZoneNames")
+    public String[] timeZoneNames ()
     {
-        return new PersistenceExceptionTranslationPostProcessor ();
+        return TimeZone.getAvailableIDs ();
+    }
+
+    /**
+     * bean to hold all the locale names.
+     *
+     * @return the array of locale names
+     */
+    @Bean (name = "localeNames")
+    public String[] localeNames ()
+    {
+        Locale [] locales = Locale.getAvailableLocales ();
+        String [] retVal = new String [locales.length];
+        int i = 0;
+        for (Locale locale : locales)
+        {
+            retVal[i++] = locale.getDisplayName ();
+        }
+        return retVal;
     }
 }

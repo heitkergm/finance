@@ -2,8 +2,6 @@ package com.dappermoose.finance.data;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -69,14 +67,33 @@ public class LoginUser extends AbstractBaseModifiableEntity
     private String password;
 
     /**
+     * The locale name for this user.
+     *
+     * @param localeName - the new value of te locale name
+     * @return the Locale for this user
+     */
+    @Column (name = "LOCALE_NAME", nullable =  false, length = 128)
+    private String localeName;
+
+    /**
+     * The time zone name for this user.
+     *
+     * @param timeZoneName - the new value of te locale name
+     * @return the name of the time zone for this user
+     */
+    @Column (name = "TIMEZONE_NAME", nullable =  false, length = 64)
+    private String timeZoneName;
+
+    /**
      * is this user enabled.
      *
      * @param enabled the new YesNo value for enabled.
      * @return the YesNo value for enabled.
      */
-    @Column (name = "ENABLED", nullable = false, length = 3)
-    @Enumerated (EnumType.STRING)
-    private YesNoEnum enabled;
+    @Column (name = "ENABLED", nullable = false)
+    private Boolean enabled;
+
+    // password handling
 
     /**
      * Validate the password.
