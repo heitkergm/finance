@@ -32,7 +32,7 @@
         <java.version>25</java.version>
 
         <!-- override parent -->
-        <byte-buddy.version>1.18.8</byte-buddy.version>
+        <byte-buddy.version>1.18.9</byte-buddy.version>
         <ehcache3.version>3.12.0</ehcache3.version>
         <git-commit-id-maven-plugin.version>10.0.0</git-commit-id-maven-plugin.version>
         <glassfish-jaxb.version>4.0.8</glassfish-jaxb.version>
@@ -52,14 +52,14 @@
         <maven-surefire-plugin.version>3.5.6</maven-surefire-plugin.version>
         <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
         <mockito.version>5.23.0</mockito.version>
-        <netty.version>4.2.14.Final</netty.version>
+        <netty.version>4.2.15.Final</netty.version>
         <pmd.version>7.25.0</pmd.version>
         <postgresql.version>42.7.11</postgresql.version>
         <slf4j.version>2.0.18</slf4j.version>
         <snakeyaml.version>2.6</snakeyaml.version>
         <tomcat.version>11.0.22</tomcat.version>
         <versions-maven-plugin.version>2.21.0</versions-maven-plugin.version>
-        <xmlunit2.version>2.11.0</xmlunit2.version>
+        <xmlunit2.version>2.12.0</xmlunit2.version>
 
         <!-- spotbugs add-in plugins -->
         <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
