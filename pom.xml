@@ -53,7 +53,6 @@
         <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
         <mockito.version>5.23.0</mockito.version>
         <netty.version>4.2.15.Final</netty.version>
-        <pmd.version>7.25.0</pmd.version>
         <postgresql.version>42.7.11</postgresql.version>
         <slf4j.version>2.0.18</slf4j.version>
         <snakeyaml.version>2.6</snakeyaml.version>
@@ -61,12 +60,11 @@
         <versions-maven-plugin.version>2.21.0</versions-maven-plugin.version>
         <xmlunit2.version>2.12.0</xmlunit2.version>
 
-        <!-- spotbugs add-in plugins -->
-        <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
-        <sb-contrib.version>7.7.4</sb-contrib.version>
+        <!-- pmd -->
+        <pmd.version>7.25.0</pmd.version>
 
         <!-- configure versions-maven-plugin -->
-        <includeParent>true</includeParent> <!-- only for property goals -->
+        <includeParent>false</includeParent> <!-- only for property goals -->
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
         <onlyProjectDependencies>true</onlyProjectDependencies>
         <onlyProjectPlugins>true</onlyProjectPlugins>
@@ -75,6 +73,15 @@
         <!-- configure site -->
         <fluido-skin.version>2.1.0</fluido-skin.version>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.maven.skins</groupId>
+                <artifactId>maven-fluido-skin</artifactId>
+                <version>${fluido-skin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -210,6 +217,15 @@
             <version>4.9.8</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.password4j</groupId>
+            <artifactId>password4j</artifactId>
+            <version>1.8.4</version>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -224,12 +240,12 @@
                             <plugin>
                                 <groupId>com.h3xstream.findsecbugs</groupId>
                                 <artifactId>findsecbugs-plugin</artifactId>
-                                <version>${findsecbugs-plugin.version}</version>
+                                <version>1.14.0</version>
                             </plugin>
                             <plugin>
                                 <groupId>com.mebigfatguy.sb-contrib</groupId>
                                 <artifactId>sb-contrib</artifactId>
-                                <version>${sb-contrib.version}</version>
+                                <version>7.7.4</version>
                             </plugin>
                         </plugins>
                     </configuration>
@@ -309,6 +325,30 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-maven-plugin</artifactId>
+                <version>1.18.20.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>delombok</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <addOutputDirectory>false</addOutputDirectory>
+                    <sourceDirectory>src/main/java</sourceDirectory>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>${lombok.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -431,7 +471,6 @@
             </plugin>
         </plugins>
     </build>
-
     <reporting>
         <plugins>
             <plugin>
@@ -486,7 +525,6 @@
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <report>jxr-no-fork</report>
                             <report>test-jxr-no-fork</report>
                         </reports>
                     </reportSet>
@@ -526,6 +564,34 @@
                     <reportSet>
                         <reports>
                             <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <doclint>all</doclint>
+                    <docfilessubdirs>true</docfilessubdirs>
+                    <show>package</show>
+                    <detectJavaApiLink>false</detectJavaApiLink>
+                    <links>
+                        <link>https://docs.oracle.com/en/java/javase/${java.version}/docs/api/</link>
+                        <link>https://docs.spring.io/spring-framework/docs/current/javadoc-api/</link>
+                        <link>https://docs.spring.io/spring-boot/api/java/</link>
+                        <link>https://docs.spring.io/spring-data/commons/reference/api/java/</link>
+                        <link>https://docs.spring.io/spring-data/jpa/reference/api/java/</link>
+                        <link>https://docs.spring.io/spring-session/reference/api/java/</link>
+                        <link>https://docs.spring.io/spring-security/reference/api/java/</link>
+                    </links>
+                    <linksource>true</linksource>
+                    <sourcepath>target/generated-sources/delombok</sourcepath>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>javadoc-no-fork</report>
                         </reports>
                     </reportSet>
                 </reportSets>

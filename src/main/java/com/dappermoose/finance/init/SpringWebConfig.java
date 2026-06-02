@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -26,6 +27,7 @@ import org.jspecify.annotations.NonNull;
 @ComponentScan ({ "com.dappermoose.finance.data",
                   "com.dappermoose.finance.init"})
 @EnableJpaRepositories (basePackages = "com.dappermoose.finance.dao")
+@EnableJpaAuditing
 @Configuration
 @EntityScan ("com.dappermoose.finance.data")
 public class SpringWebConfig implements WebMvcConfigurer

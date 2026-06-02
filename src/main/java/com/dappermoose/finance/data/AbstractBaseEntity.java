@@ -26,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @Setter
 @EqualsAndHashCode
 @EntityListeners (AuditingEntityListener.class)
+@SuppressWarnings ("javadoc")
 public abstract class AbstractBaseEntity implements Serializable
 {
     private static final long serialVersionUID = 82658497657767445L;

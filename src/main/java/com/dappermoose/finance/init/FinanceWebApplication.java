@@ -8,6 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+/**
+ * Class defining our main program.
+ *
+ * @author Matt Heitker
+ */
 @SpringBootApplication
 @NoArgsConstructor (access = AccessLevel.PRIVATE)
 @SuppressWarnings ("checkstyle:HideUtilityClassConstructor")

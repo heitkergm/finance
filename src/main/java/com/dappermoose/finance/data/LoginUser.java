@@ -1,5 +1,6 @@
 package com.dappermoose.finance.data;
 
+import jakarta.inject.Inject;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,15 +10,16 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import org.mindrot.jbcrypt.BCrypt;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+
 
 /**
  * The Class LoginUser.
@@ -36,6 +38,8 @@ public class LoginUser extends AbstractBaseModifiableEntity
 {
     private static final long serialVersionUID = 1938810739933009000L;
 
+    @Inject
+    private static PasswordEncoder passwordEncoder;
 
     /**
      *  The user id.
@@ -52,18 +56,19 @@ public class LoginUser extends AbstractBaseModifiableEntity
     /**
      * The user name.
      *
+     * @param userName - the new user Name
      * @return the user name.
      */
     @Column (name = "USER_NAME", nullable = false, length = 32)
     private String userName;
 
-    // passwords are stored as 60 character bcypt'd hashs
+    // passwords are stored as encoded hash values
     /**
      * The password.
      *
      * @return the encrypted password
      */
-    @Column (name = "PASSWORD", nullable = false, length = 60)
+    @Column (name = "PASSWORD", nullable = false, length = 255)
     private String password;
 
     /**
@@ -103,7 +108,7 @@ public class LoginUser extends AbstractBaseModifiableEntity
      */
     public boolean checkpw (final String inputPassword)
     {
-        return BCrypt.checkpw (inputPassword, password);
+        return passwordEncoder.matches (inputPassword, password);
     }
 
     /**
@@ -113,6 +118,6 @@ public class LoginUser extends AbstractBaseModifiableEntity
      */
     public void setPassword (final String passwordNew)
     {
-        password = BCrypt.hashpw (passwordNew, BCrypt.gensalt ());
+        password = passwordEncoder.encode (passwordNew);
     }
 }
