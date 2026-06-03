@@ -77,17 +77,8 @@ public class LoginUser extends AbstractBaseModifiableEntity
      * @param localeName - the new value of te locale name
      * @return the Locale for this user
      */
-    @Column (name = "LOCALE_NAME", nullable =  false, length = 128)
+    @Column (name = "LOCALE_NAME", nullable =  false, length = 32)
     private String localeName;
-
-    /**
-     * The time zone name for this user.
-     *
-     * @param timeZoneName - the new value of te locale name
-     * @return the name of the time zone for this user
-     */
-    @Column (name = "TIMEZONE_NAME", nullable =  false, length = 64)
-    private String timeZoneName;
 
     /**
      * is this user enabled.

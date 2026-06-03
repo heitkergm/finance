@@ -1,8 +1,5 @@
 package com.dappermoose.finance.init;
 
-import java.util.Locale;
-import java.util.TimeZone;
-
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -11,19 +8,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import org.jspecify.annotations.NonNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The Class SpringWebConfig.
  *
  * @author Matt Heitker
  */
+@Slf4j
 @ComponentScan ({ "com.dappermoose.finance.data",
                   "com.dappermoose.finance.init"})
 @EnableJpaRepositories (basePackages = "com.dappermoose.finance.dao")
@@ -32,20 +29,6 @@ import org.jspecify.annotations.NonNull;
 @EntityScan ("com.dappermoose.finance.data")
 public class SpringWebConfig implements WebMvcConfigurer
 {
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
-     * #addInterceptors(org.springframework.web.servlet.config.annotation.
-     * InterceptorRegistry)
-     */
-    @Override
-    public void addInterceptors (@NonNull final InterceptorRegistry registry)
-    {
-        registry.addInterceptor (new LocaleChangeInterceptor ());
-    }
-
     /*
      * (non-Javadoc)
      *
@@ -77,29 +60,6 @@ public class SpringWebConfig implements WebMvcConfigurer
     }
 
     /**
-     * Session locale resolver.
-     *
-     * @return the session locale resolver
-     */
-    @Bean
-    SessionLocaleResolver localeResolver ()
-    {
-        final SessionLocaleResolver resolver = new SessionLocaleResolver ();
-        return resolver;
-    }
-
-    /**
-     * bean to hold all the time zones names.
-     *
-     * @return the array of time zones names
-     */
-    @Bean (name = "timeZoneNames")
-    public String[] timeZoneNames ()
-    {
-        return TimeZone.getAvailableIDs ();
-    }
-
-    /**
      * bean to hold all the locale names.
      *
      * @return the array of locale names
@@ -107,13 +67,7 @@ public class SpringWebConfig implements WebMvcConfigurer
     @Bean (name = "localeNames")
     public String[] localeNames ()
     {
-        Locale [] locales = Locale.getAvailableLocales ();
-        String [] retVal = new String [locales.length];
-        int i = 0;
-        for (Locale locale : locales)
-        {
-            retVal[i++] = locale.getDisplayName ();
-        }
-        return retVal;
+        // only list supported ones
+        return new String [] {"en_us"};
     }
 }

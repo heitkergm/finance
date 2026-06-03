@@ -7,6 +7,7 @@
 
     <logger name="org.hibernate.tool.hbm2ddl" level="DEBUG" />
     <logger name="org.ehcache.core.EhcacheManager" level="DEBUG" />
+    <logger name="com.dappermoose.finance" level="DEBUG" />
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
