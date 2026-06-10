@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.6</version>
+        <version>4.0.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dappermoose</groupId>
@@ -35,35 +35,33 @@
         <byte-buddy.version>1.18.10</byte-buddy.version>
         <ehcache3.version>3.12.0</ehcache3.version>
         <git-commit-id-maven-plugin.version>10.0.0</git-commit-id-maven-plugin.version>
-        <glassfish-jaxb.version>4.0.9</glassfish-jaxb.version>
-        <hibernate.version>7.4.0.Final</hibernate.version>
+        <hibernate.version>7.4.1.Final</hibernate.version>
         <hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
         <jackson-2-bom.version>2.22.0</jackson-2-bom.version>
-        <jackson-bom.version>3.1.4</jackson-bom.version>
+        <jackson-bom.version>3.2.0</jackson-bom.version>
         <jakarta-inject.version>2.0.1.MR</jakarta-inject.version>
         <jakarta-xml-bind.version>4.0.5</jakarta-xml-bind.version>
         <json-path.version>3.0.0</json-path.version>
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <lettuce.version>7.6.0.RELEASE</lettuce.version>
-        <logback.version>1.5.34</logback.version>
         <log4j2.version>2.26.0</log4j2.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
-        <maven-enforcer-plugin.version>3.6.3</maven-enforcer-plugin.version>
         <maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
-        <maven-surefire-plugin.version>3.5.6</maven-surefire-plugin.version>
         <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
+        <micrometer.version>1.17.0</micrometer.version>
         <mockito.version>5.23.0</mockito.version>
-        <netty.version>4.2.15.Final</netty.version>
-        <postgresql.version>42.7.11</postgresql.version>
-        <slf4j.version>2.0.18</slf4j.version>
         <snakeyaml.version>2.6</snakeyaml.version>
-        <tomcat.version>11.0.22</tomcat.version>
+        <spring-data-bom.version>2026.0.0</spring-data-bom.version>
+        <spring-security.version>7.1.0</spring-security.version>
         <versions-maven-plugin.version>2.21.0</versions-maven-plugin.version>
         <xmlunit2.version>2.12.0</xmlunit2.version>
 
         <!-- pmd -->
         <pmd.version>7.25.0</pmd.version>
+
+        <!-- spotbugs -->
+        <spotbugs.version>4.10.1</spotbugs.version>
 
         <!-- configure versions-maven-plugin -->
         <includeParent>false</includeParent> <!-- only for property goals -->
@@ -216,7 +214,7 @@
         <dependency>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-annotations</artifactId>
-            <version>4.9.8</version>
+            <version>${spotbugs.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -235,7 +233,7 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.9.8.3</version>
+                    <version>4.10.2.0</version>
                     <configuration>
                         <includeTests>true</includeTests>
                         <plugins>
@@ -255,7 +253,7 @@
                         <dependency>
                             <groupId>com.github.spotbugs</groupId>
                             <artifactId>spotbugs</artifactId>
-                            <version>4.9.8</version>
+                            <version>${spotbugs.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
