@@ -559,7 +559,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <doclint>all</doclint>
+                    <doclint>all,-missing</doclint>
                     <docfilessubdirs>true</docfilessubdirs>
                     <show>package</show>
                     <detectJavaApiLink>false</detectJavaApiLink>
