@@ -36,9 +36,9 @@ import lombok.Setter;
 @EqualsAndHashCode (callSuper = true)
 public class Account extends AbstractBaseModifiableEntity
 {
-    private static final long serialVersionUID = 7377180330885353950L;
+    private static final long serialVersionUID = 9223372036854775807L;
 
-    /**
+/**
      * The account id.
      *
      * @param accountId the new value

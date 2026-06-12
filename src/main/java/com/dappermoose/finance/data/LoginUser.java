@@ -36,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 @EqualsAndHashCode (callSuper = true)
 public class LoginUser extends AbstractBaseModifiableEntity
 {
-    private static final long serialVersionUID = 1938810739933009000L;
+    private static final long serialVersionUID = 9223372036854775807L;
 
     @Inject
     private static PasswordEncoder passwordEncoder;
