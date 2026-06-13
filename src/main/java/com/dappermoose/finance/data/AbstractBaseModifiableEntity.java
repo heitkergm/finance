@@ -24,10 +24,9 @@ import lombok.extern.slf4j.Slf4j;
 @EqualsAndHashCode (callSuper = true)
 public abstract class AbstractBaseModifiableEntity extends AbstractBaseEntity
 {
+    private static final long serialVersionUID = -7924484965606957814L;
 
-    private static final long serialVersionUID = 9223372036854775807L;
-
-   /**
+    /**
      * The modified timestamp.
      *
      * @param modified the new value

@@ -28,8 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @EntityListeners (AuditingEntityListener.class)
 public abstract class AbstractBaseEntity implements Serializable
 {
-
-    private static final long serialVersionUID = 6427988487927633526L;
+    private static final long serialVersionUID = -7277883433013289299L;
 
     /**
      * The created timestamp field.
