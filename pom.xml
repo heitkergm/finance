@@ -41,6 +41,7 @@
 
         <!-- override parent -->
         <git-commit-id-maven-plugin.version>10.0.0</git-commit-id-maven-plugin.version>
+        <hikaricp.version>7.1.0</hikaricp.version>
         <jackson-2-bom.version>2.22.0</jackson-2-bom.version>
         <jackson-bom.version>3.2.0</jackson-bom.version>
         <jakarta-inject.version>2.0.1.MR</jakarta-inject.version>
@@ -255,7 +256,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>13.5.0</version>
+                            <version>13.6.0</version>
                         </dependency>
                     </dependencies>
                     <configuration>
