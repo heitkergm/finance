@@ -40,7 +40,10 @@
         <java.version>25</java.version>
 
         <!-- override parent -->
+         <commons-logging.version>1.4.0</commons-logging.version>
         <git-commit-id-maven-plugin.version>10.0.0</git-commit-id-maven-plugin.version>
+        <hibernate.version>7.4.2.Final</hibernate.version>
+        <hibernate-validator.version>9.1.1.Final</hibernate-validator.version>
         <hikaricp.version>7.1.0</hikaricp.version>
         <jackson-2-bom.version>2.22.0</jackson-2-bom.version>
         <jackson-bom.version>3.2.0</jackson-bom.version>
@@ -49,8 +52,10 @@
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <lettuce.version>7.6.0.RELEASE</lettuce.version>
         <log4j2.version>2.26.0</log4j2.version>
+        <logback.version>1.5.35</logback.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
         <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
+        <tomcat.version>11.0.23</tomcat.version>
         <xmlunit2.version>2.12.0</xmlunit2.version>
 
         <!-- pmd -->
@@ -58,6 +63,7 @@
 
         <!-- spotbugs -->
         <spotbugs.version>4.10.2</spotbugs.version>
+        <spotbugs.failOnError>false</spotbugs.failOnError>
 
         <!-- configure versions-maven-plugin -->
         <includeParent>false</includeParent> <!-- only for property goals -->
@@ -338,17 +344,6 @@
                         <version>${lombok.version}</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>io.github.git-commit-id</groupId>

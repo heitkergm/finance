@@ -3,6 +3,6 @@
          xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 https://www.mojohaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
     <ignoreVersions>
-         <ignoreVersion type="regex">(.+-RC\d+|.+-jdk\d|.+-rc.*|.+\.CR\d+|.+\.Alpha.*|.+-beta.*|.+-alpha.*|.+-M\d+)</ignoreVersion>
+         <ignoreVersion type="regex">(.+Beta.*|.+-RC\d+|.+-jdk\d|.+-rc.*|.+\.CR\d+|.+\.Alpha.*|.+-beta.*|.+-alpha.*|.+-M\d+)</ignoreVersion>
     </ignoreVersions>
 </ruleset>
