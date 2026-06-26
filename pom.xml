@@ -52,7 +52,7 @@
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <lettuce.version>7.6.0.RELEASE</lettuce.version>
         <log4j2.version>2.26.0</log4j2.version>
-        <logback.version>1.5.35</logback.version>
+        <logback.version>1.5.37</logback.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
         <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
         <tomcat.version>11.0.23</tomcat.version>
@@ -296,6 +296,8 @@
                     <artifactId>dependency-check-maven</artifactId>
                     <version>12.2.2</version>
                     <configuration>
+                        <autoUpdate>false</autoUpdate>
+                        <hostedSuppressionsForceUpdate>true</hostedSuppressionsForceUpdate>
                         <ossIndexServerId>ossindex</ossIndexServerId>
                         <dataDirectory>${user.dir}/../dependency-check-data</dataDirectory>
                         <nvdApiServerId>nvdapikey</nvdApiServerId>
