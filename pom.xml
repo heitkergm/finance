@@ -43,7 +43,7 @@
         <byte-buddy.version>1.18.11</byte-buddy.version>
         <commons-logging.version>1.4.0</commons-logging.version>
         <git-commit-id-maven-plugin.version>10.0.0</git-commit-id-maven-plugin.version>
-        <hibernate.version>7.4.4.Final</hibernate.version>
+        <hibernate.version>7.4.5.Final</hibernate.version>
         <hibernate-validator.version>9.1.2.Final</hibernate-validator.version>
         <hikaricp.version>7.1.0</hikaricp.version>
         <jackson-2-bom.version>2.22.1</jackson-2-bom.version>
