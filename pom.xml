@@ -50,8 +50,9 @@
         <jackson-bom.version>3.2.1</jackson-bom.version>
         <jakarta-inject.version>2.0.1.MR</jakarta-inject.version>
         <json-path.version>3.0.0</json-path.version>
-        <junit-jupiter.version>6.1.1</junit-jupiter.version>
+        <junit-jupiter.version>6.1.2</junit-jupiter.version>
         <lettuce.version>7.6.0.RELEASE</lettuce.version>
+        <webjars-locator-lite.version>1.1.4</webjars-locator-lite.version>
         <log4j2.version>2.26.1</log4j2.version>
         <logback.version>1.5.38</logback.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
@@ -65,7 +66,7 @@
         <pmd.version>7.26.0</pmd.version>
 
         <!-- spotbugs -->
-        <spotbugs.version>4.10.2</spotbugs.version>
+        <spotbugs.version>4.10.3</spotbugs.version>
         <spotbugs.failOnError>false</spotbugs.failOnError>
 
         <!-- configure versions-maven-plugin -->
@@ -90,7 +91,7 @@
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator-core</artifactId>
+            <artifactId>webjars-locator-lite</artifactId>
         </dependency>
         <dependency>
             <groupId>org.ehcache</groupId>
@@ -232,7 +233,7 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.10.2.0</version>
+                    <version>4.10.3.0</version>
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
@@ -265,7 +266,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>13.7.0</version>
+                            <version>13.8.0</version>
                         </dependency>
                     </dependencies>
                     <configuration>
