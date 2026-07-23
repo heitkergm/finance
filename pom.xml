@@ -54,7 +54,7 @@
         <lettuce.version>7.6.0.RELEASE</lettuce.version>
         <webjars-locator-lite.version>1.1.4</webjars-locator-lite.version>
         <log4j2.version>2.26.1</log4j2.version>
-        <logback.version>1.5.38</logback.version>
+        <logback.version>1.6.0</logback.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
         <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
         <netty.version>4.2.16.Final</netty.version>
