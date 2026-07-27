@@ -105,15 +105,18 @@ and open the template in the editor.
         <module name="JavadocVariable">
             <property name="accessModifiers" value="public"/>
         </module>
+<!--  as of 13.9.0, replace with SummaryJavadoc
         <module name="JavadocStyle">
             <property name="scope" value="public"/>
         </module>
+-->
+        <module name="SummaryJavadoc" />
+
         <!--
         <module name="WriteTag"/>
         -->
         <module name="NonEmptyAtclauseDescription"/>
         <module name="JavadocTagContinuationIndentation"/>
-        <module name="SummaryJavadocCheck"/>
         <module name="AtclauseOrder"/>
         <module name="JavadocParagraph"/>
         <module name="SingleLineJavadoc"/>
