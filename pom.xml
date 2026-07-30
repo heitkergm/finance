@@ -50,6 +50,7 @@
         <jackson-bom.version>3.2.1</jackson-bom.version>
         <jakarta-inject.version>2.0.1.MR</jakarta-inject.version>
         <json-path.version>3.0.0</json-path.version>
+        <jspecify.version>1.0.1</jspecify.version>
         <junit-jupiter.version>6.1.2</junit-jupiter.version>
         <lettuce.version>7.6.0.RELEASE</lettuce.version>
         <webjars-locator-lite.version>1.1.4</webjars-locator-lite.version>
