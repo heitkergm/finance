@@ -4,6 +4,7 @@ import java.util.TimeZone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.security.autoconfigure.UserDetailsServiceAutoConfiguration;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
  *
  * @author Matt Heitker
  */
-@SpringBootApplication
+@SpringBootApplication (exclude = {UserDetailsServiceAutoConfiguration.class})
 @NoArgsConstructor (access = AccessLevel.PRIVATE)
 @SuppressWarnings ("checkstyle:HideUtilityClassConstructor")
 public final class FinanceWebApplication
