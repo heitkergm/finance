@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html data-layout-decorate="~{decorator}" lang="en">
+<head>
+<title data-th-text="#{login.title}">Title</title>
+</head>
+<body><div data-layout-fragment="content">
+	<div class="center">
+			<div data-th-text="#{login.header}"></div>
+		<form method="POST" autocomplete="off"
+			action="login"
+                        data-th-action="@{/login}"
+			name="loginform" id="login-user-form">
+                <div class="columns is-centered">
+                <div class="column is-half">
+			<fieldset>
+			    <div class="field is-horizontal">
+                                <div class="field-label">
+			        <Label class="label"
+                                       data-th-text="#{login.username}"></Label>
+                                </div>
+                                <div class="field-body">
+				<div class="field is-narrow">
+                                <div class="control">
+				    <input class="input"
+                                           id="username"
+                                           name="username" type="text" size="32"
+                                           maxlength="32" />
+				</div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label">
+				<Label class="label"
+                                       data-th-text="#{login.password}"></Label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+				    <input class="input" id="password"
+                                           name="password" type="password"
+                                           size="32" maxlength="32" />
+				</div>
+                                </div>
+                                </div>
+                            </div>
+			</fieldset>
+               </div>
+               </div>
+                                    <p class="error" id="errors">
+                                       <span data-th-text="#{login.combo.bad}"
+                                             data-th-if="${param.error != null}">
+                                       </span>
+                                    </p>
+				    <button class="button is-primary is-small"
+                                            type="submit"
+                                            data-th-text="#{login.button}">
+                                    </button>
+               </form>
+                                    <p><span data-th-text="#{login.register}"></span></p>
+                                     <a href="register" class="button is-small is-link is-light"
+                                                 data-th-href="@{/register}"
+                                                 data-th-text="#{login.reglink}"></a>
+
+	</div>
+	<script data-th-inline="javascript">
+
+    $(document).ready(function()
+    {
+        $("#login-user-form").validate(
+        {
+ //           onfocusout: function(element)
+ //           {
+ //               this.element(element);
+ //           },
+
+            rules:
+            {
+                username:
+                {
+                    required: true
+                },
+                password:
+                {
+                    required: true
+                }
+            },
+            messages:
+            {
+                username:
+                {
+                    required: [[#{login.user.size}]] + "<br />"
+                },
+                password:
+                {
+                    required: [[#{login.password.size}]] + "<br />"
+                }
+            },
+            invalidHandler: function(event, validator)
+            {
+                $("#errors").empty();
+            },
+            submitHandler: function(form)
+            {
+                form.submit();
+            },
+            errorLabelContainer: '#errors'
+        });
+    });
+    $('#username').focus();
+ 	</script>
+    </div>
+</body>
+</html>

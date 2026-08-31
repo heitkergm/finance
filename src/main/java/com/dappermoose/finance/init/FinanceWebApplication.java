@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
  *
  * @author Matt Heitker
  */
-@SpringBootApplication (exclude = {UserDetailsServiceAutoConfiguration.class})
+@SpringBootApplication (exclude = UserDetailsServiceAutoConfiguration.class)
 @NoArgsConstructor (access = AccessLevel.PRIVATE)
 @SuppressWarnings ("checkstyle:HideUtilityClassConstructor")
 public final class FinanceWebApplication

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html data-layout-decorate="~{decorator}" lang="en">
+<head>
+<title data-th-text="#{changepwd.title}">Title</title>
+</head>
+<body>
+    <div data-layout-fragment="content">
+        <form name="logoutForm" method="POST" action="/logout" data-th-action="@{/logout}">
+        </form>
+	<div class="center">
+		<p data-th-text="#{changepwd.header}">
+		</p>
+		<form data-th-object="${changepwd}" method="POST" autocomplete="off"
+			action="changepwd"  data-th-action="@{/changepwd}"
+			id="changepwd-user-form" name="changepwdform">
+                <div class="columns is-centered">
+                <div class="column is-half">
+			<fieldset>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{changepwd.username}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                    <input data-th-field="*{userName}" type="text"
+                           class="input" size="32" maxlength="32" />
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{changepwd.currpwd}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                    <input data-th-field="*{currentPassword}" type="password"
+                           size="32" maxlength="32" class="input" />
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{changepwd.password}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                    <input data-th-field="*{password}" type="password" size="32"
+                           class="input" maxlength="32" />
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{changepwd.repeatedPassword}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                    <input data-th-field="*{repeatedPassword}" type="password"
+                           class="input" size="32" maxlength="32" />
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{changepwd.tzone}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                                <div class="select">
+                     <select data-th-field="*{tzone}">
+                        <option data-th-each="tz:${tzones}" data-th-value="${tz}"
+                                data-th-text="${tz}">Option</option>
+                    </select>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+               </div>
+			</fieldset>
+                </div>
+                </div>
+                                    <p class="error" id="errors">
+                                       <span data-th-errors="*{all}"></span>
+                                    </p>
+ 				    <button class="button is-primary is-small" type="submit"
+                                            data-th-text="#{changepwd.button}"></button>
+		</form>
+	</div>
+	<script data-th-inline="javascript">
+
+    $(document).ready(function()
+    {
+ 	$('#currentPassword').focus();
+        $("#changepwd-user-form").validate(
+        {
+            onfocusout: function(element)
+            {
+                this.element(element);
+            },
+
+            rules:
+            {
+                currentPassword:
+                {
+                    required: true
+                },
+                password:
+                {
+                    required: true
+                },
+                repeatedPassword:
+                {
+                    equalTo: "#password",
+                    required: true
+                },
+                tzone:
+                {
+                    required: true
+                }
+            },
+            messages:
+            {
+                currentPassword:
+                {
+                    required: [[#{changePwd.currentPassword.size}]] + "<br />"
+                },
+                password:
+                {
+                    required: [[#{login.password.size}]] + "<br />"
+                },
+                repeatedPassword:
+                {
+                    required: [[#{register.secondPassword.size}]] + "<br />",
+                    equalTo: [[#{register.pwd.notmatch}]] + "<br />"
+                },
+                tzone:
+                {
+                   required: [[#{register.tzone.size}]] + "<br />"
+                }
+            },
+            invalidHandler: function(event, validator)
+            {
+                $("#errors").empty();
+            },
+            submitHandler: function(form)
+            {
+                form.submit();
+            },
+            errorLabelContainer: '#errors'
+        });
+    });
+        </script>
+</div>
+</body>
+</html>

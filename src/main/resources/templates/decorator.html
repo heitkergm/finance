@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <title>decorator title</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="webjars/font-awesome/js/all.min.js"
+                data-th-src="@{/webjars/font-awesome/js/all.min.js}">
+        </script>
+        <link rel="shortcut icon" href="images/favicon.ico"
+              data-th-href="@{/images/favicon.ico}" type="image/x-icon" />
+        <link type="text/css" rel="stylesheet"
+              href="webjars/bulma/css/bulma.min.css"
+              data-th-href="@{/webjars/bulma/css/bulma.min.css}" />
+        <link type="text/css" rel="stylesheet" href="css/style.css"
+              data-th-href="@{/css/style.css}" />
+        <link type="text/css" rel="stylesheet" href="css/style-blue.css"
+              data-th-href="@{|/css/style-blue.css|}" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-brand navbar-center" data-layout-fragment="menu">
+                <a href="main" class="navbar-item" data-th-href="@{/main}">
+                    <span class="bold"> <span data-th-text="#{decorator.header}"></span>
+                    <i class="fas fa-dollar-sign fa-lg"></i></span>
+                </a>
+                <a class="navbar-burger burger" data-target="sfMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+                <div id="sfMenu" class="navbar-menu">
+                    <a href="changepwd" class="navbar-item"
+                       data-th-href="@{/changepwd}"
+                       data-th-text="#{decorator.changepwd}"
+                       data-th-if="${#authorization.expression('isAuthenticated()')}">
+                    </a>
+                    <a onclick="document.logoutForm.submit()"
+                       class="navbar-item"
+                       data-th-text="#{decorator.logout}"
+                       data-th-if="${#authorization.expression('isAuthenticated()')}">
+                    </a>
+            </div>
+        </nav>
+        <script src="webjars/jquery/dist/jquery.min.js"
+                data-th-src="@{/webjars/jquery/dist/jquery.min.js}">
+        </script>
+        <script src="webjars/jquery-validation/dist/jquery.validate.min.js"
+                data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+        </script>
+        <div data-layout-fragment="content">content</div>
+    <div class="center">
+        <p data-th-utext="#{decorator.footer}">footer</p>
+    </div>
+        <script>
+            $(document).ready(function() {
+                $(".navbar-burger").click(function() {
+                    $(".navbar-burger").toggleClass("is-active");
+                    $(".navbar-menu").toggleClass("is-active");
+                });
+            });
+        </script>
+</body>
+</html>

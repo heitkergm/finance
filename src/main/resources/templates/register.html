@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html data-layout-decorate="~{decorator}" lang="en">
+<head>
+<title data-th-text="#{register.title}">Title</title>
+</head>
+<body>
+    <div data-layout-fragment="content">
+	<div class="center">
+		<p data-th-text="#{register.header}">
+		</p>
+		<form data-th-object="${register}" method="POST" autocomplete="off"
+			action="register"
+			id="register-user-form" name="registerform"
+                        data-th-action="@{/register}">
+                <div class="columns is-centered">
+                <div class="column is-half">
+			<fieldset>
+			    <div class="field is-horizontal">
+                                <div class="field-label">
+				    <label data-th-text="#{register.username}"
+                                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+				    <input data-th-field="*{userName}"
+                                           type="text" size="32" maxlength="32"
+                                           class="input" />
+                                </div>
+                                </div>
+                                </div>
+			    </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{register.password}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                    <input data-th-field="*{password}" type="password"
+                           size="32" maxlength="32" class="input" />
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{register.repeatedPassword}"
+                            class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                    <input data-th-field="*{repeatedPassword}" type="password"
+                           size="32" maxlength="32" class="input" />
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                <div class="field is-horizontal">
+                                <div class="field-label">
+                    <label data-th-text="#{register.tzone}"
+                           class="label"></label>
+                                </div>
+                                <div class="field-body">
+                                <div class="field is-narrow">
+                                <div class="control">
+                                <div class="select">
+                    <select data-th-field="*{tzone}">
+                        <option data-th-each="tz:${tzones}" data-th-value="${tz}"
+                                data-th-text="${tz}">Option</option>
+                    </select>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                </div>
+			</fieldset>
+                </div>
+                </div>
+                                    <p class="error" id="errors">
+                                            <span data-th-errors="*{all}"></span></p>
+ 				    <button class="button is-primary is-small"
+                                            type="submit"
+                                            data-th-text="#{register.button}">
+			            </button>
+		</form>
+	</div>
+
+	<script data-th-inline="javascript">
+
+    $(document).ready(function()
+    {
+     	$('#userName').focus();
+        $("#register-user-form").validate(
+        {
+            onfocusout: function(element)
+            {
+                this.element(element);
+            },
+
+            rules:
+            {
+                userName:
+                {
+                    required: true
+                },
+                currentPassword:
+                {
+                    required: true
+                },
+                password:
+                {
+                    required: true
+                },
+                repeatedPassword:
+                {
+                    required: true,
+                    equalTo: "#password"
+                },
+                tzone:
+                {
+                    required: true
+                }
+            },
+            messages:
+            {
+                userName:
+                {
+                    required: [[#{register.userName.required}]] + "<br />"
+
+                },
+                currentPassword:
+                {
+                    required: [[#{changePwd.currentPassword.size}]] + "<br />"
+                },
+                password:
+                {
+                    required: [[#{login.password.size}]] + "<br />"
+                },
+                repeatedPassword:
+                {
+                    required: [[#{register.secondPassword.size}]] + "<br />",
+                    equalTo: [[#{register.pwd.notmatch}]] + "<br />"
+                },
+                tzone:
+                {
+                    required: [[#{register.tzone.size}]] + "<br />"
+                }
+            },
+            invalidHandler: function(event, validator)
+            {
+                $("#errors").empty();
+            },
+            submitHandler: function(form)
+            {
+                form.submit();
+            },
+            errorLabelContainer: '#errors'
+        });
+    });
+        </script>
+    </div>
+</body>
+</html>

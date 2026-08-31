@@ -1,0 +1,7 @@
+.center {text-align: center;}
+.error {color: red; font-weight: normal;}
+.label {font-weight: bold;}
+.bold {font-weight: bold;}
+.button.is-small {font-size: 90%;}
+table {margin:auto;}
+.navbar-center {flex-grow: 1; justify-content: center;}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html data-layout-decorate="~{decorator}" lang="en">
+<head>
+<title data-th-text="#{main.title}">title</title>
+</head>
+<body>
+    <div data-layout-fragment="content">
+        <form name="logoutForm" method="POST" action="logout" data-th-action="@{/logout}">
+        </form>
+	<div class="center">
+	    <table class="table is-striped">
+	        <thead>
+	            <tr>
+	                <th>Account Name</th>
+	                <th>Balance</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+                <tr data-th-each="account : ${accounts}">
+                    <td data-th-text="${account.accountName}">name</td>
+                    <td data-th-text="${account.startingBalance}">balance</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td data-th-text="#{main.total}"></td>
+                    <td data-th-text="${#numbers.formatCurrency(balance)}"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <br /><a href="acct/add" data-th-href="@{/acct/add}" class="button is-small is-link is-light"
+                 data-th-text="#{main.addAcctLink}"></a>
+	</div>
+    </div>
+</body>
+</html>
