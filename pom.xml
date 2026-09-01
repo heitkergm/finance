@@ -343,6 +343,7 @@
                         <suppressionFiles>config/dependency-suppressions.xml</suppressionFiles>
                         <skipProvidedScope>true</skipProvidedScope>
                         <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+                        <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -361,6 +362,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
