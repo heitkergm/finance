@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MyErrorController.
+ * @author Matt Heitker
  */
 @Controller
 public class MyErrorController implements ErrorController

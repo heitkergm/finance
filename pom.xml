@@ -42,7 +42,7 @@
         <!-- override parent -->
         <byte-buddy.version>1.18.12</byte-buddy.version>
         <commons-logging.version>1.4.0</commons-logging.version>
-        <git-commit-id-maven-plugin.version>10.0.0</git-commit-id-maven-plugin.version>
+        <git-commit-id-maven-plugin.version>10.0.1</git-commit-id-maven-plugin.version>
         <groovy.version>5.1.1</groovy.version>
         <hibernate.version>7.4.7.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
@@ -54,8 +54,11 @@
         <lettuce.version>7.7.0.RELEASE</lettuce.version>
         <log4j2.version>2.26.1</log4j2.version>
         <logback.version>1.6.3</logback.version>
+        <lombok.version>1.18.48</lombok.version>
+        <maven-compiler-plugin.version>3.16.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
-        <maven-surefire-report-plugin.version>3.5.6</maven-surefire-report-plugin.version>
+        <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
+        <maven-surefire-report-plugin.version>3.6.0</maven-surefire-report-plugin.version>
         <snakeyaml.version>2.7</snakeyaml.version>
         <tomcat.version>11.0.25</tomcat.version>
         <xmlunit2.version>2.13.0</xmlunit2.version>
@@ -262,7 +265,7 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.10.4.0</version>
+                    <version>4.10.4.1</version>
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
