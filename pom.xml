@@ -63,6 +63,7 @@
         <slf4j.version>2.0.19</slf4j.version>
         <snakeyaml.version>2.7</snakeyaml.version>
         <tomcat.version>11.0.25</tomcat.version>
+        <versions-maven-plugin.version>2.22.0</versions-maven-plugin.version>
         <xmlunit2.version>2.13.0</xmlunit2.version>
 
         <!-- pmd -->
