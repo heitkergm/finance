@@ -64,6 +64,7 @@
         <snakeyaml.version>2.7</snakeyaml.version>
         <tomcat.version>11.0.26</tomcat.version>
         <versions-maven-plugin.version>2.22.0</versions-maven-plugin.version>
+        <webjars-locator-lite.version>1.1.5</webjars-locator-lite.version>
         <xmlunit2.version>2.14.0</xmlunit2.version>
 
         <!-- pmd -->
