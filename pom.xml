@@ -44,7 +44,7 @@
         <commons-logging.version>1.4.0</commons-logging.version>
         <git-commit-id-maven-plugin.version>10.0.1</git-commit-id-maven-plugin.version>
         <groovy.version>5.1.2</groovy.version>
-        <hibernate.version>7.4.8.Final</hibernate.version>
+        <hibernate.version>7.4.9.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
         <jackson-2-bom.version>2.22.2</jackson-2-bom.version>
         <jackson-bom.version>3.2.2</jackson-bom.version>
@@ -64,7 +64,7 @@
         <snakeyaml.version>2.7</snakeyaml.version>
         <tomcat.version>11.0.26</tomcat.version>
         <versions-maven-plugin.version>2.22.0</versions-maven-plugin.version>
-        <xmlunit2.version>2.13.0</xmlunit2.version>
+        <xmlunit2.version>2.14.0</xmlunit2.version>
 
         <!-- pmd -->
         <pmd.version>7.27.0</pmd.version>
