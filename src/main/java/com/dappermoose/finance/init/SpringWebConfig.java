@@ -58,16 +58,4 @@ public class SpringWebConfig implements WebMvcConfigurer
         source.setBasenames ("classpath:messages", "classpath:ValidationMessages");
         return source;
     }
-
-    /**
-     * bean to hold all the locale names.
-     *
-     * @return the array of locale names
-     */
-    @Bean (name = "localeNames")
-    public String[] localeNames ()
-    {
-        // only list supported ones
-        return new String [] {"en_us"};
-    }
 }

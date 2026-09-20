@@ -51,9 +51,8 @@ public class RegisterAction
     public String mainAction (final Model model)
     {
         RegisterUser ru = new RegisterUser ();
-        ru.setTzone (TimeZone.getDefault ().getID ());
         model.addAttribute ("register", ru);
-        model.addAttribute ("tzones", context.getBean ("tzones"));
+//         model.addAttribute ("tzones", context.getBean ("tzones"));
         return "register";
     }
 
@@ -76,7 +75,7 @@ public class RegisterAction
         if (res.hasErrors ())
         {
             model.addAttribute ("register", register);
-            model.addAttribute ("tzones", context.getBean ("tzones"));
+//            model.addAttribute ("tzones", context.getBean ("tzones"));
             return "register";
         }
 
@@ -90,7 +89,7 @@ public class RegisterAction
                             request.getLocale ()));
             res.addError (objErr);
             model.addAttribute ("register", register);
-            model.addAttribute ("tzones", context.getBean ("tzones"));
+//             model.addAttribute ("tzones", context.getBean ("tzones"));
             return "register";
         }
 
@@ -98,8 +97,7 @@ public class RegisterAction
         final LoginUser user = new LoginUser ();
         user.setUserName (register.getUserName ());
         user.setPassword (register.getPassword ());
-        user.setTzone (register.getTzone ());
-        user.setEnabled (YesNoEnum.YES);
+        user.setEnabled (true);
         userRepository.save (user);
 
         return "redirect:/main";

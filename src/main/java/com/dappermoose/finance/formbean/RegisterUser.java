@@ -46,13 +46,4 @@ public class RegisterUser extends BaseFormBean
      */
     @Size (min = 1, max = 32, message = "{register.secondPassword.size}")
     private String repeatedPassword;
-
-    /**
-     * the time zone.
-     *
-     * @param tzone the new value
-     * @return the time zone value
-     */
-    @Size (min = 1, max = 128, message = "{register.tzone.size}")
-    private String tzone;
 }

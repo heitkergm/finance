@@ -72,15 +72,6 @@ public class LoginUser extends AbstractBaseModifiableEntity
     private String password;
 
     /**
-     * The locale name for this user.
-     *
-     * @param localeName - the new value of te locale name
-     * @return the Locale for this user
-     */
-    @Column (name = "LOCALE_NAME", nullable =  false, length = 32)
-    private String localeName;
-
-    /**
      * is this user enabled.
      *
      * @param enabled the new YesNo value for enabled.
