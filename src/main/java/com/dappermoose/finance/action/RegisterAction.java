@@ -1,15 +1,14 @@
 package com.dappermoose.finance.action;
 
 import java.util.List;
-import java.util.TimeZone;
 
 import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,8 +37,12 @@ public class RegisterAction
     @Inject
     private MessageSource messageSource;
 
+    /** password encoder */
     @Inject
-    private ApplicationContext context;
+    private PasswordEncoder passwordEncoder;
+
+//    @Inject
+//    private ApplicationContext context;
 
     /**
      * Main action. Display the form.
@@ -47,7 +50,7 @@ public class RegisterAction
      * @param model the model
      * @return the string
      */
-    @RequestMapping (value = "/register", method = RequestMethod.GET)
+    @RequestMapping (value="register", method = RequestMethod.GET)
     public String mainAction (final Model model)
     {
         RegisterUser ru = new RegisterUser ();
@@ -66,7 +69,7 @@ public class RegisterAction
      * @return the string
      */
     @Transactional
-    @RequestMapping (value = "/register", method = RequestMethod.POST)
+    @RequestMapping (value="register", method = RequestMethod.POST)
     public String processRegisterAction (
             @Valid @ModelAttribute ("register") final RegisterUser register,
             final BindingResult res, final Model model,
@@ -96,7 +99,7 @@ public class RegisterAction
         // create user bean
         final LoginUser user = new LoginUser ();
         user.setUserName (register.getUserName ());
-        user.setPassword (register.getPassword ());
+        user.setPassword (passwordEncoder.encode (register.getPassword ()));
         user.setEnabled (true);
         userRepository.save (user);
 

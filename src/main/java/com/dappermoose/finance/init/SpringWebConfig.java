@@ -22,7 +22,9 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @ComponentScan ({ "com.dappermoose.finance.data",
-                  "com.dappermoose.finance.init"})
+                  "com.dappermoose.finance.action",
+                  "com.dappermoose.finance.security",
+                  "com.dappermoose.finance.init" })
 @EnableJpaRepositories (basePackages = "com.dappermoose.finance.dao")
 @EnableJpaAuditing
 @Configuration

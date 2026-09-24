@@ -10,8 +10,6 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -37,9 +35,6 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginUser extends AbstractBaseModifiableEntity
 {
     private static final long serialVersionUID = 7669424552798459750L;
-
-    @Inject
-    private static PasswordEncoder passwordEncoder;
 
     /**
      *  The user id.
@@ -79,27 +74,4 @@ public class LoginUser extends AbstractBaseModifiableEntity
      */
     @Column (name = "ENABLED", nullable = false)
     private Boolean enabled;
-
-    // password handling
-
-    /**
-     * Validate the password.
-     *
-     * @param inputPassword - the supplied password
-     * @return true/false - the password is correct
-     */
-    public boolean checkpw (final String inputPassword)
-    {
-        return passwordEncoder.matches (inputPassword, password);
-    }
-
-    /**
-     * Sets the password.
-     *
-     * @param passwordNew the new password
-     */
-    public void setPassword (final String passwordNew)
-    {
-        password = passwordEncoder.encode (passwordNew);
-    }
 }
