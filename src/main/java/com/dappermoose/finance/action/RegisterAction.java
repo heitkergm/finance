@@ -50,12 +50,11 @@ public class RegisterAction
      * @param model the model
      * @return the string
      */
-    @RequestMapping (value="register", method = RequestMethod.GET)
+    @RequestMapping (value = "register", method = RequestMethod.GET)
     public String mainAction (final Model model)
     {
         RegisterUser ru = new RegisterUser ();
         model.addAttribute ("register", ru);
-//         model.addAttribute ("tzones", context.getBean ("tzones"));
         return "register";
     }
 
@@ -69,7 +68,7 @@ public class RegisterAction
      * @return the string
      */
     @Transactional
-    @RequestMapping (value="register", method = RequestMethod.POST)
+    @RequestMapping (value = "register", method = RequestMethod.POST)
     public String processRegisterAction (
             @Valid @ModelAttribute ("register") final RegisterUser register,
             final BindingResult res, final Model model,
