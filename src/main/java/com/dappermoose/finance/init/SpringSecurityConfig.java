@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password4j.Argon2Password4jPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.dappermoose.finance.security.AuthenticationListener;
+
 /**
  *Spring Security config.
  *
@@ -27,6 +29,17 @@ public class SpringSecurityConfig
     PasswordEncoder passwordEncoder ()
     {
         return new Argon2Password4jPasswordEncoder ();
+    }
+
+    /**
+     * Authentication Listener.
+     *
+     * @return the authentication listener
+     */
+    @Bean
+    AuthenticationListener authenticationListener ()
+    {
+        return new AuthenticationListener ();
     }
 
     /**

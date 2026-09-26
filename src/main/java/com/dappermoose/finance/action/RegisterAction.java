@@ -99,7 +99,7 @@ public class RegisterAction
         final LoginUser user = new LoginUser ();
         user.setUserName (register.getUserName ());
         user.setPassword (passwordEncoder.encode (register.getPassword ()));
-        user.setEnabled (true);
+        user.setEnabled (Boolean.TRUE);
         userRepository.save (user);
 
         return "redirect:/main";
