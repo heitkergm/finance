@@ -1,7 +1,5 @@
 package com.dappermoose.finance.security;
 
-import java.util.List;
-
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
@@ -14,9 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.jspecify.annotations.NonNull;
 
 import com.dappermoose.finance.dao.LoginEventRepository;
-import com.dappermoose.finance.dao.LoginUserRepository;
 import com.dappermoose.finance.data.LoginEvent;
-import com.dappermoose.finance.data.LoginUser;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,9 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AuthenticationListener implements ApplicationListener<AbstractAuthenticationEvent>
 {
-    @Inject
-    private LoginUserRepository loginUserRepository;
-
     @Inject
     private LoginEventRepository loginEventRepository;
 
@@ -64,18 +57,9 @@ public class AuthenticationListener implements ApplicationListener<AbstractAuthe
             userName = "SYSTEM";
         }
 
-        List<LoginUser> luser = loginUserRepository.findByUserName (userName);
-
-        if (luser.size () <= 0)
-        {
-            return;
-        }
-
-        LoginUser user = luser.get (0);
-
         LoginEvent loginEvent = new LoginEvent ();
 
-        loginEvent.setUser (user);
+        loginEvent.setUserName (userName);
 
         if (e instanceof AbstractAuthenticationFailureEvent)
         {

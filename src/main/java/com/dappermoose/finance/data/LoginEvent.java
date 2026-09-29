@@ -37,9 +37,9 @@ public class LoginEvent extends AbstractBaseEntity
      * @return the login event ID
      */
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "logIN_EVENT_ID_SEQ")
-    @SequenceGenerator (name = "logIN_EVENT_ID_SEQ", sequenceName = "logIN_EVENT_ID_SEQ", allocationSize = 1)
-    @Column (name = "logIN_EVENT_ID", nullable = false, updatable = false)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "LOGIN_EVENT_ID_SEQ")
+    @SequenceGenerator (name = "LOGIN_EVENT_ID_SEQ", sequenceName = "LOGIN_EVENT_ID_SEQ", allocationSize = 1)
+    @Column (name = "LOGIN_EVENT_ID", nullable = false, updatable = false)
     private Long loginEventId;
 
     /**
@@ -48,9 +48,8 @@ public class LoginEvent extends AbstractBaseEntity
      * @param user the new value
      * @return the user record
      */
-    @ManyToOne (optional = false)
-    @JoinColumn (name = "USER_ID", nullable = false, updatable = false, foreignKey = @ForeignKey (name = "FK_logIN_EVENT_USER"))
-    private LoginUser user;
+    @Column (name = "USER_NAME", nullable = false, length = 32)
+    private String userName;
 
     /**
      * The success flag.
