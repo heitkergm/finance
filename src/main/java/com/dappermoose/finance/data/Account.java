@@ -21,12 +21,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-//
+// TODO: Auto-generated Javadoc
 /**
  * The Class Account.
- * This references a checking or credit card account
- *
- * @author Matt Heitker
  */
 @Entity
 @Table (name = "ACCOUNT", indexes = @Index (columnList = "USER_ID", name = "ACCOUNT_FKEY_USER"))
@@ -36,7 +33,7 @@ import lombok.Setter;
 @EqualsAndHashCode (callSuper = true)
 public class Account extends AbstractBaseModifiableEntity
 {
-    private static final long serialVersionUID = 8890752219162037724L;
+    private static final long serialVersionUID = 7377180330885353950L;
 
     /**
      * The account id.

@@ -2,13 +2,9 @@ package com.dappermoose.finance.data;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -21,8 +17,7 @@ import lombok.Setter;
  * The Class LoginEvent.
  */
 @Entity
-@Table (name = "LOGIN_EVENT",
-        indexes = @Index (columnList = "USER_ID", name = "LOGIN_EVENT_FKEY_USER"))
+@Table (name = "LOGIN_EVENT")
 @Getter
 @Setter
 @EqualsAndHashCode (callSuper = true)
@@ -45,7 +40,7 @@ public class LoginEvent extends AbstractBaseEntity
     /**
      * The user.
      *
-     * @param user the new value
+     * @param userName the new value
      * @return the user record
      */
     @Column (name = "USER_NAME", nullable = false, length = 32)
