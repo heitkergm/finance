@@ -43,7 +43,7 @@ public class LoginEvent extends AbstractBaseEntity
      * @param userName the new value
      * @return the user record
      */
-    @Column (name = "USER_NAME", nullable = false, length = 32)
+    @Column (name = "USER_NAME", nullable = false, length = LoginUser.USER_NAME_LEN)
     private String userName;
 
     /**

@@ -35,6 +35,8 @@ public class LoginUser extends AbstractBaseModifiableEntity
 {
     private static final long serialVersionUID = 7669424552798459750L;
 
+    public static final int USER_NAME_LEN = 32;
+
     /**
      *  The user id.
      *
@@ -53,7 +55,7 @@ public class LoginUser extends AbstractBaseModifiableEntity
      * @param userName - the new user Name
      * @return the user name.
      */
-    @Column (name = "USER_NAME", nullable = false, length = 32)
+    @Column (name = "USER_NAME", nullable = false, length = USER_NAME_LEN)
     private String userName;
 
     // passwords are stored as encoded hash values
