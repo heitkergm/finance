@@ -35,6 +35,11 @@ public class LoginUser extends AbstractBaseModifiableEntity
 {
     private static final long serialVersionUID = 7669424552798459750L;
 
+    /**
+     * constant size for user name in database.
+     * To be used in all tables containing the user name; keeps
+     * things consistent.
+     */
     public static final int USER_NAME_LEN = 32;
 
     /**

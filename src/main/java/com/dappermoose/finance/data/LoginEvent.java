@@ -15,6 +15,8 @@ import lombok.Setter;
 // TODO: Auto-generated Javadoc
 /**
  * The Class LoginEvent.
+ *
+ * @author Matt Heitker
  */
 @Entity
 @Table (name = "LOGIN_EVENT")

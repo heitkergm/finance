@@ -10,6 +10,9 @@ import com.dappermoose.finance.data.LoginUser;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface AccountRepository.
+ *
+ * @author Matt Heitker
+ *
  */
 public interface AccountRepository extends CrudRepository<Account, Long>
 {

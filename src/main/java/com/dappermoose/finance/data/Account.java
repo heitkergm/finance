@@ -24,6 +24,8 @@ import lombok.Setter;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Account.
+ *
+ * @author Matt Heitker
  */
 @Entity
 @Table (name = "ACCOUNT", indexes = @Index (columnList = "USER_ID", name = "ACCOUNT_FKEY_USER"))

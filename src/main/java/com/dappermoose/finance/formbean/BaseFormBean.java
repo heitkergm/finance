@@ -8,6 +8,8 @@ import lombok.Setter;
 
 /**
  * The Class BaseFormBean.
+ *
+ * @author Matt Heitker
  */
 @Getter
 @Setter

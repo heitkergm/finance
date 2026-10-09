@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 // TODO: Auto-generated Javadoc
 /**
  * The Class PasswordMatchImpl.
+ *
+ * @author Matt Heitker
  */
 @Slf4j
 public class PasswordMatchImpl implements ConstraintValidator<PasswordMatch, Object>

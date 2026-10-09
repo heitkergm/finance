@@ -24,7 +24,9 @@ import com.dappermoose.finance.formbean.RegisterUser;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class LoginAction.
+ * The Class RegisterAction.
+ *
+ * @author Matt Heitker
  */
 
 @Controller
@@ -40,12 +42,9 @@ public class RegisterAction
     @Inject
     private MessageSource messageSource;
 
-    /** password encoder */
+    /** password encoder. */
     @Inject
     private PasswordEncoder passwordEncoder;
-
-//    @Inject
-//    private ApplicationContext context;
 
     /**
      * Main action. Display the form.

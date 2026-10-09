@@ -18,6 +18,8 @@ import com.dappermoose.finance.data.LoginUser;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MainAction.
+ *
+ * @author Matt Heitker
  */
 @Controller
 public class MainAction

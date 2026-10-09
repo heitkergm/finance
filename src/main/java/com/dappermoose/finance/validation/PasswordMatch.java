@@ -11,6 +11,8 @@ import jakarta.validation.Payload;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface PasswordMatch.
+ *
+ * @author Matt Heitker
  */
 @Retention (RetentionPolicy.RUNTIME)
 @Target ({ ElementType.TYPE, ElementType.ANNOTATION_TYPE })

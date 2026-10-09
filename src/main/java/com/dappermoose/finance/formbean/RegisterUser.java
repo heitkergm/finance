@@ -11,6 +11,8 @@ import lombok.Setter;
 // TODO: Auto-generated Javadoc
 /**
  * The Class RegisterUser.
+ *
+ * @author Matt Heitker
  */
 @Getter
 @Setter
