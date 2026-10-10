@@ -15,7 +15,6 @@ import com.dappermoose.finance.dao.LoginUserRepository;
 import com.dappermoose.finance.data.Account;
 import com.dappermoose.finance.data.LoginUser;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MainAction.
  *

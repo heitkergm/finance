@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MyErrorController.
  * @author Matt Heitker

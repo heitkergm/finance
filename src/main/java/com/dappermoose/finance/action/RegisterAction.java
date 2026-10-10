@@ -22,7 +22,6 @@ import com.dappermoose.finance.dao.LoginUserRepository;
 import com.dappermoose.finance.data.LoginUser;
 import com.dappermoose.finance.formbean.RegisterUser;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RegisterAction.
  *
