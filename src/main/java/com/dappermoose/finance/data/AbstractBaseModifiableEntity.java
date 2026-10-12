@@ -5,6 +5,7 @@ import java.time.Instant;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.EqualsAndHashCode;
@@ -35,4 +36,15 @@ public abstract class AbstractBaseModifiableEntity extends AbstractBaseEntity
     @LastModifiedDate
     @Column (name = "MODIFIED_AT", nullable = false)
     private Instant modified;
+
+    /**
+     *
+     * The modified user name)
+     *
+     * @param modifiedName teh new value
+     * @return the name of the last modifier
+     */
+    @LastModifiedBy
+    @Column (name = "MODIFIED_BY", nullable = false, length = USER_NAME_LEN)
+    private String modifiedName;
 }

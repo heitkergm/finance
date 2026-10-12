@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent;
 import org.springframework.security.authentication.event.AbstractAuthenticationFailureEvent;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
+import org.springframework.security.authentication.event.LogoutSuccessEvent;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import org.jspecify.annotations.NonNull;
@@ -36,7 +37,8 @@ public class AuthenticationListener implements ApplicationListener<AbstractAuthe
         log.debug ("login event + " + e.toString ());
 
         if (!(e instanceof AuthenticationSuccessEvent ||
-              e instanceof AbstractAuthenticationFailureEvent))
+              e instanceof AbstractAuthenticationFailureEvent ||
+              e instanceof LogoutSuccessEvent))
         {
             return;
         }
@@ -64,9 +66,16 @@ public class AuthenticationListener implements ApplicationListener<AbstractAuthe
         if (e instanceof AbstractAuthenticationFailureEvent)
         {
             loginEvent.setSuccess (Boolean.FALSE);
+            loginEvent.setEventType (LoginEvent.LOGIN_EVENT);
+        }
+        else if (e instanceof AuthenticationSuccessEvent)
+        {
+            loginEvent.setEventType (LoginEvent.LOGIN_EVENT);
+            loginEvent.setSuccess (Boolean.TRUE);
         }
         else
         {
+            loginEvent.setEventType (LoginEvent.LOGOUT_EVENT);
             loginEvent.setSuccess (Boolean.TRUE);
         }
         loginEventRepository.save (loginEvent);

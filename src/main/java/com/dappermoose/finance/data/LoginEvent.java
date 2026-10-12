@@ -26,6 +26,8 @@ public class LoginEvent extends AbstractBaseEntity
 {
     private static final long serialVersionUID = -5740191601882965493L;
 
+    public static final String LOGIN_EVENT = "login";
+    public static final String LOGOUT_EVENT = "logout";
     /**
      * The login event ID.
      *
@@ -44,8 +46,16 @@ public class LoginEvent extends AbstractBaseEntity
      * @param userName the new value
      * @return the user record
      */
-    @Column (name = "USER_NAME", nullable = false, length = LoginUser.USER_NAME_LEN, updatable = false)
+    @Column (name = "USER_NAME", nullable = false, length = USER_NAME_LEN, updatable = false)
     private String userName;
+
+    /** event type.
+     *
+     * @param eventType teh new value
+     * @return the event type
+     */
+    @Column (name = "EVENT_TYPE", nullable = false, length = 6, updatable = false)
+    private String eventType;
 
     /**
      * The success flag.
