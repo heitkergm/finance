@@ -42,7 +42,6 @@
         <!-- override parent -->
         <byte-buddy.version>1.18.14</byte-buddy.version>
         <classmate.version>1.8.0</classmate.version>
-
         <commons-logging.version>1.4.0</commons-logging.version>
         <git-commit-id-maven-plugin.version>10.0.1</git-commit-id-maven-plugin.version>
         <groovy.version>6.0.0</groovy.version>
@@ -67,8 +66,8 @@
         <postgresql.version>42.7.14</postgresql.version>
         <slf4j.version>2.0.20</slf4j.version>
         <snakeyaml.version>2.7</snakeyaml.version>
-        <tomcat.version>11.0.26</tomcat.version>
-        <versions-maven-plugin.version>2.22.0</versions-maven-plugin.version>
+        <tomcat.version>11.0.27</tomcat.version>
+        <versions-maven-plugin.version>2.23.0</versions-maven-plugin.version>
         <webjars-locator-lite.version>1.1.5</webjars-locator-lite.version>
         <xmlunit2.version>2.14.0</xmlunit2.version>
 
@@ -76,7 +75,6 @@
         <pmd.version>7.28.0</pmd.version>
 
         <!-- spotbugs -->
-        <spotbugs.version>4.10.4</spotbugs.version>
         <spotbugs.failOnError>false</spotbugs.failOnError>
 
         <!-- configure versions-maven-plugin -->
@@ -259,7 +257,7 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.10.4.1</version>
+                    <version>4.10.5.0</version>
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
@@ -280,7 +278,7 @@
                         <dependency>
                             <groupId>com.github.spotbugs</groupId>
                             <artifactId>spotbugs</artifactId>
-                            <version>${spotbugs.version}</version>
+                            <version>4.10.5</version>
                         </dependency>
                     </dependencies>
                 </plugin>

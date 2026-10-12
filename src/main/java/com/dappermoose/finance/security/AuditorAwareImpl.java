@@ -3,6 +3,7 @@ package com.dappermoose.finance.security;
 import java.util.Optional;
 
 import org.springframework.data.domain.AuditorAware;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -10,14 +11,19 @@ import org.springframework.stereotype.Component;
 @Component ("auditorProvider")
 public class AuditorAwareImpl implements AuditorAware<String>
 {
-    @SuppressWarnings ("null")
     @Override
     public Optional<String> getCurrentAuditor ()
     {
-        // Returns the logged-in username
-        return Optional.ofNullable (SecurityContextHolder.getContext ()
-                .getAuthentication ())
-                .filter (Authentication::isAuthenticated)
-                .map (Authentication::getName);
+        Authentication authentication = SecurityContextHolder.getContext ().getAuthentication ();
+
+        if (authentication == null ||
+            !authentication.isAuthenticated () ||
+            authentication instanceof AnonymousAuthenticationToken)
+        {
+            return Optional.of ("SYSTEM");
+        }
+
+        // Returns the logged-in username if not null
+        return Optional.ofNullable (authentication.getName ());
     }
 }
