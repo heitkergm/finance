@@ -50,7 +50,7 @@ public abstract class AbstractBaseEntity implements Serializable
     /**
      * the created id.
      *
-     * @param name new value
+     * @param createdName new value
      * @return value of createdName
      */
     @CreatedBy
