@@ -38,10 +38,9 @@ public abstract class AbstractBaseModifiableEntity extends AbstractBaseEntity
     private Instant modified;
 
     /**
+     * The modified user name.
      *
-     * The modified user name)
-     *
-     * @param modifiedName teh new value
+     * @param modifiedName the new value
      * @return the name of the last modifier
      */
     @LastModifiedBy

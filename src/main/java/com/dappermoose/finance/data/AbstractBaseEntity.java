@@ -37,6 +37,7 @@ public abstract class AbstractBaseEntity implements Serializable
      * things consistent.
      */
     public static final int USER_NAME_LEN = 32;
+
     /**
      * The created timestamp field.
      *

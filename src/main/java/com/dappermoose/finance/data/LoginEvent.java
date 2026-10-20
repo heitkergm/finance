@@ -26,8 +26,16 @@ public class LoginEvent extends AbstractBaseEntity
 {
     private static final long serialVersionUID = -5740191601882965493L;
 
+    /**
+     * constant for the login event.
+     */
     public static final String LOGIN_EVENT = "login";
+
+    /**
+     * constant for the logout event.
+     */
     public static final String LOGOUT_EVENT = "logout";
+
     /**
      * The login event ID.
      *
