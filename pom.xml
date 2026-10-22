@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.1</version>
+        <version>4.1.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dappermoose</groupId>
@@ -40,13 +40,11 @@
         <java.version>25</java.version>
 
         <!-- override parent -->
-        <byte-buddy.version>1.18.15</byte-buddy.version>
+        <aspectj.version>1.9.26</aspectj.version>
         <classmate.version>1.8.0</classmate.version>
         <commons-logging.version>1.4.0</commons-logging.version>
         <git-commit-id-maven-plugin.version>10.0.1</git-commit-id-maven-plugin.version>
         <groovy.version>6.0.0</groovy.version>
-        <hibernate.version>7.4.13.Final</hibernate.version>
-        <hibernate-validator.version>9.1.5.Final</hibernate-validator.version>
         <hikaricp.version>7.1.0</hikaricp.version>
         <jackson-2-bom.version>2.22.4</jackson-2-bom.version>
         <jackson-bom.version>3.2.4</jackson-bom.version>
@@ -56,19 +54,13 @@
         <lettuce.version>7.9.0.RELEASE</lettuce.version>
         <log4j2.version>2.26.1</log4j2.version>
         <logback.version>1.6.5</logback.version>
-        <lombok.version>1.18.48</lombok.version>
         <maven-compiler-plugin.version>3.16.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
         <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
         <maven-surefire-report-plugin.version>3.6.0</maven-surefire-report-plugin.version>
         <mockito.version>5.24.0</mockito.version>
-        <netty.version>4.2.19.Final</netty.version>
-        <postgresql.version>42.7.14</postgresql.version>
-        <slf4j.version>2.0.20</slf4j.version>
         <snakeyaml.version>2.7</snakeyaml.version>
-        <tomcat.version>11.0.27</tomcat.version>
         <versions-maven-plugin.version>2.23.0</versions-maven-plugin.version>
-        <webjars-locator-lite.version>1.1.5</webjars-locator-lite.version>
         <xmlunit2.version>2.14.0</xmlunit2.version>
 
         <!-- pmd -->
