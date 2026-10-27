@@ -58,8 +58,8 @@
         <logback.version>1.6.6</logback.version>
         <maven-compiler-plugin.version>3.16.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
-        <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
-        <maven-surefire-report-plugin.version>3.6.0</maven-surefire-report-plugin.version>
+        <maven-surefire-plugin.version>3.6.1</maven-surefire-plugin.version>
+        <maven-surefire-report-plugin.version>3.6.1</maven-surefire-report-plugin.version>
         <mockito.version>5.24.0</mockito.version>
         <snakeyaml.version>2.7</snakeyaml.version>
         <versions-maven-plugin.version>2.23.0</versions-maven-plugin.version>
@@ -422,7 +422,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.15</version>
+                <version>0.8.16</version>
                 <executions>
                     <execution>
                         <id>pre-unit-test</id>
