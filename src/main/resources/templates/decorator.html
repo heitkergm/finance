@@ -20,10 +20,6 @@
     <body>
         <nav class="navbar">
             <div class="navbar-brand navbar-center" data-layout-fragment="menu">
-                <a href="main" class="navbar-item" data-th-href="@{/main}">
-                    <span class="bold"> <span data-th-text="#{decorator.header}"></span>
-                    <i class="fas fa-dollar-sign fa-lg"></i></span>
-                </a>
                 <a class="navbar-burger burger" data-target="sfMenu">
                     <span></span>
                     <span></span>
@@ -49,6 +45,12 @@
         <script src="webjars/jquery-validation/dist/jquery.validate.min.js"
                 data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
         </script>
+        <div class="center">
+                <a href="main" data-th-href="@{/main}">
+                    <span class="bold"> <span data-th-text="#{decorator.header}"></span>
+                    <i class="fas fa-dollar-sign fa-lg"></i></span>
+                </a>
+        </div>
         <div data-layout-fragment="content">content</div>
     <div class="center">
         <p data-th-utext="#{decorator.footer}">footer</p>
