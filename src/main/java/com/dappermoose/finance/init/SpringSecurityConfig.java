@@ -58,7 +58,8 @@ public class SpringSecurityConfig
             .authorizeHttpRequests (authorizeHttpRequests ->
                 authorizeHttpRequests
                     .requestMatchers ("/images/**", "/css/**",
-                        "/webjars/**", "/register", "/error").permitAll ()
+                        "/webjars/**", "/register", "/error",
+                        "/actuator/**").permitAll ()
                     .anyRequest ().authenticated ()
             )
             .logout (logout ->
