@@ -8,6 +8,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component ("auditorProvider")
 public class AuditorAwareImpl implements AuditorAware<String>
 {
@@ -16,6 +19,7 @@ public class AuditorAwareImpl implements AuditorAware<String>
     {
         Authentication authentication = SecurityContextHolder.getContext ().getAuthentication ();
 
+        log.debug ("auditor-provider - authentication + " + authentication);
         if (authentication == null ||
             !authentication.isAuthenticated () ||
             authentication instanceof AnonymousAuthenticationToken)
@@ -24,6 +28,6 @@ public class AuditorAwareImpl implements AuditorAware<String>
         }
 
         // Returns the logged-in username if not null
-        return Optional.ofNullable (authentication.getName ());
+        return Optional.of (authentication.getName ());
     }
 }
