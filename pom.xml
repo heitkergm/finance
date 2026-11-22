@@ -372,6 +372,41 @@
                 </dependencies>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <?m2e ignore?>
+                        <goals><goal>check</goal></goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>nu.validator</groupId>
+                <artifactId>vnu-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <?m2e ignore?>
+                        <goals><goal>validate</goal></goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>src/main/resources/templates</directory>
+                            <glob>**.html</glob>
+                        </fileset>
+                        <fileset>
+                            <directory>src/main/resources/static/css</directory>
+                            <glob>**.css</glob>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>io.github.git-commit-id</groupId>
                 <artifactId>git-commit-id-maven-plugin</artifactId>
                 <version>${git-commit-id-maven-plugin.version}</version>
@@ -436,7 +471,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.10.1</version>
+                                    <version>3.10.2</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <version>${java.version}</version>
