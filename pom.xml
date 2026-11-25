@@ -50,6 +50,7 @@
         <logback.version>1.6.8</logback.version>
         <maven-enforcer-plugin.version>3.7.0</maven-enforcer-plugin.version>
         <netty.version>4.2.21.Final</netty.version>
+        <postgresql.version>42.7.15</postgresql.version>
         <tomcat.version>11.0.29</tomcat.version>
         <versions-maven-plugin.version>2.25.3</versions-maven-plugin.version>
 
